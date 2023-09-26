@@ -9,5 +9,4 @@ cargo build
 
 ./target/debug/az-kv-get-secret \
     --keyvault-url $KEYVAULT_URL\
-    --secrets-filter $SECRETS_FILTER \
-    #--only-value
+    --secrets-filter $SECRETS_FILTER #--only-value
