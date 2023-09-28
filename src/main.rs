@@ -1,5 +1,5 @@
 //use futures::stream::StreamExt;
-//use tokio_stream::StreamExt;
+use tokio_stream::StreamExt;
 use azure_identity::DefaultAzureCredentialBuilder;
 use azure_security_keyvault::prelude::*;
 use std::{sync::Arc, error::Error, process};
@@ -48,7 +48,7 @@ async fn main() {
                 }
                 Err(error) => {
                     eprintln!(
-                        "Error getting Azure Secret CLient {}", error);
+                        "Error getting Azure Secrets from CLient {}", error);
                     process::exit(1)
                 }
             }
@@ -119,7 +119,7 @@ fn get_args() -> Result<Config, Box<dyn Error>> {
 }
 
 
-/* 
+#[allow(dead_code)]
 async fn print_all_secrets(client: SecretClient) -> azure_core::Result<()> {
     let mut stream = client.list_secrets().into_stream();
     while let Some(response) = stream.next().await {
@@ -137,4 +137,3 @@ async fn print_all_secrets(client: SecretClient) -> azure_core::Result<()> {
     }
     Ok(())
 }
-*/
